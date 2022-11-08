@@ -1,11 +1,19 @@
+import cadastro from './pages.js'
+
 describe('Formulário', () => {
 
-    it('Realiza cadastro com suceso', () => {
+    
 
+
+    it('Realiza cadastro com suceso', function() {() => {
+        
+    }   
+        const pages= new cadastro()
+          
         cy.visit('https://automacaocombatista.herokuapp.com/users/new');
-        cy.get('input[name="user[name]"').type('Amonra')
-        cy.get('input[name="user[lastname]"').type('Reis')
-        cy.get('#user_email').type('amonra.reisde1@gmail.com')
+        pages.nome('amonra');
+        pages.lastname('reis');
+        pages.email('amonra.reis@gmail.com')
         cy.get(':nth-child(4) > :nth-child(2) > .input-field').type('Marechal floriano, 2536, jardins')
         cy.get('#user_university').type('Estacio de Sá')
         cy.get('#user_profile').type('Analista de QA')
@@ -13,6 +21,8 @@ describe('Formulário', () => {
         cy.get('#user_age').type('21')
         cy.get('.actions > input').click()
         cy.contains('Usuário Criado com sucesso').should('be.visible')
+
+    
     });
 
     it('Realiza edição de usuário', () => {
