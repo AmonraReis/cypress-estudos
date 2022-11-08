@@ -1,50 +1,70 @@
-
-
 class cadastro {
 
-    name(){
-        return cy.get('input[name="user[name]"')
+    navigateOne(){
+        cy.visit('https://automacaocombatista.herokuapp.com/users/new');
+    }
+
+    nome(username){
+
+     cy.get('input[name="user[name]"')
+     .type(username)
+     return this
+  
     }
     
-    lastname(){
+    lastname(lastname){
 
-       return cy.get('input[name="user[lastname]"')
+    cy.get('input[name="user[lastname]"')
+    .type(lastname)
+    return this
     }
 
-    email(){
+    email(email){
         
         return cy.get('#user_email')
+        .type(email)
+        return this
     }
     
-    endereço(){
+    endereço(endereco){
 
-        return cy.get(':nth-child(4) > :nth-child(2) > .input-field')
+         cy.get(':nth-child(4) > :nth-child(2) > .input-field')
+         .type(endereco)
+         return this
     }
 
-    universidade(){
+    universidade(universidade){
 
-        return cy.get('#user_university')
+         cy.get('#user_university')
+         .type(universidade)
+         return this
 
     }
 
-    profissao(){
+    profissao(profissao){
 
-        return cy.get('#user_profile')
+         cy.get('#user_profile')
+         .type(profissao)
+         return this
     }
     
-    genero(){
+    genero(genero){
 
-        return cy.get(':nth-child(6) > :nth-child(1) > .input-field')
+       cy.get(':nth-child(6) > :nth-child(1) > .input-field')
+       .type
+       return this
     }
 
-    idade(){
+    idade(idade){
 
-        return cy.get('#user_age')
+         cy.get('#user_age')
+         .type(idade)
+         return this
     }
 
     criarbtn(){
 
-        return cy.get('.actions > input').click()
+         cy.get('.actions > input').click()
     }
 
     
@@ -58,5 +78,4 @@ class cadastro {
 
     
 }
-
-export default cadastro;
+ export default cadastro;
