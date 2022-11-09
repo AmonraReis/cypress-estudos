@@ -14,12 +14,12 @@ describe('Formulário', () => {
         pages.nome('amonra');
         pages.lastname('reis');
         pages.email('amonra.reis@gmail.com')
-        cy.get(':nth-child(4) > :nth-child(2) > .input-field').type('Marechal floriano, 2536, jardins')
-        cy.get('#user_university').type('Estacio de Sá')
-        cy.get('#user_profile').type('Analista de QA')
-        cy.get(':nth-child(6) > :nth-child(1) > .input-field').type('Masculino')
-        cy.get('#user_age').type('21')
-        cy.get('.actions > input').click()
+        pages.endereço('Marechal floriano, 2536, jardins')
+        pages.universidade('Estacio de Sá')
+        pages.profissao('Analista de QA')
+        pages.genero('Masculino')
+        pages.idade('21')
+        pages.criarbtn
         cy.contains('Usuário Criado com sucesso').should('be.visible')
 
     
@@ -28,8 +28,8 @@ describe('Formulário', () => {
     it('Realiza edição de usuário', () => {
         cy.visit('https://automacaocombatista.herokuapp.com/users/1154');
         cy.get('.col > .blue').click()
-        cy.get('input[name="user[name]"').type('Amonra-editado')
-        cy.get('input[name="user[lastname]"').type('Reis-editado')
+        pages.nome('Amonra-editado')
+        pages.lastname('Reis-editado')
         cy.get('.actions > input').click()
         cy.contains('Seu Usuário foi Atualizado!').should('be.visible')
 
